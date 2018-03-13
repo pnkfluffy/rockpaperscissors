@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<h1>Rock Paper Scissors</h1>
+
+<!-- 0 = rock, 1 = paper, 2 = scissors -->
+
+<script>
+
+  let computerMove;
+
+  function computerPlay() {
+    num = Math.random() * 3;
+    let computerMove = (num < 1) ? "Rock" :
+      (num > 2) ? "Scissors" :
+      "Paper";
+
+      alert(computerMove);
+  }
+
+</script>
