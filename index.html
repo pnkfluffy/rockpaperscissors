@@ -6,15 +6,29 @@
 
 <script>
 
-  let computerMove;
+  const playerSelection = "rock";
+  let computerSelection = "";
 
   function computerPlay() {
     num = Math.random() * 3;
-    let computerMove = (num < 1) ? "Rock" :
-      (num > 2) ? "Scissors" :
-      "Paper";
+    // redo with random arrays
+    computerSelection = (num < 1) ? "rock" :
+      (num > 2) ? "scissors" :
+      "paper";
+    return computerSelection;
 
-      alert(computerMove);
   }
+
+  function playRound(playerSelection) {
+    computerPlay();
+    if (playerSelection == "rock") {
+      let result = (computerSelection == "scissors") ? "win" :
+      (computerSelection == "paper") ? "lose" :
+      "tie";
+    }
+  }
+
+  console.log(playRound(computerSelection, playerSelection));
+  console.log(result);
 
 </script>
