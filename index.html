@@ -2,30 +2,65 @@
 
 <h1>Rock Paper Scissors</h1>
 
-<!-- 0 = rock, 1 = paper, 2 = scissors -->
-
 <script>
 
-  const playerSelection = "rock";
-  let computerSelection = "";
-
-  function computerPlay() {
-    num = Math.random() * 3;
-    // redo with random arrays
-    computerSelection = (num < 1) ? "rock" :
-      (num > 2) ? "scissors" :
-      "paper";
-    return computerSelection;
-
+  function playerInput() {
+    let playerSelection = prompt("Rock, paper, or scissors?");
+    playerSelection = playerSelection.toLowerCase();
+    if (playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissors") {
+      alert("You need to choose rock, paper, or scissors dummy!");
+      playerInput();
+    } else {
+      return playerSelection;
+      playRound(playerSelection, computerPlay());
+    }
   }
 
-  function playRound(playerSelection) {
+  function computerPlay() {
+    let computerSelection = ["rock", "paper", "scissors"];
+    return computerSelection[Math.floor(Math.random() * 3)];
+  }
+
+  const playerSelection = "rock";
+
+  function playRound(playerSelection, computerSelection) {
     computerPlay();
-    if (playerSelection == "rock") {
-      let result = (computerSelection == "scissors") ? "win" :
-      (computerSelection == "paper") ? "lose" :
-      "tie";
+    switch (playerSelection) {
+      case ("rock"):
+        if (computerSelection == "rock") {
+          result = "draw";
+        }
+        if (computerSelection == "paper") {
+          result = "lose";
+        }
+        if (computerSelection == "scissors") {
+          result = "win";
+        }
+        break;
+      case ("paper"):
+        if (computerSelection == "rock") {
+          result = "win";
+        }
+        if (computerSelection == "paper") {
+          result = "tie";
+        }
+        if (computerSelection == "scissors") {
+          result = "lose";
+        }
+        break;
+      case ("scissors"):
+        if (computerSelection == "rock") {
+          result = "lose";
+        }
+        if (computerSelection == "paper") {
+          result = "win";
+        }
+        if (computerSelection == "scissors") {
+          result = "tie";
+        }
+        break;
     }
+    return result;
   }
 
   console.log(playRound(computerSelection, playerSelection));
