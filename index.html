@@ -1,70 +1,15 @@
 <!DOCTYPE html>
+<meta charset="utf-8"/>
 
 <h1>Rock Paper Scissors</h1>
 
-<script>
+<button class="btn" id="rock">rock</button>
+<button class="btn" id="paper">paper</button>
+<button class="btn" id="scissors">scissors</button>
 
-  let playerSelection;
+<div id="playerScore">
+</div>
+<div id="computerScore">
+</div>
 
-  function playRound() {
-    let computerOptions = ["rock", "paper", "scissors"];
-    let computerSelection = computerOptions[Math.floor(Math.random() * 3)];
-    playerInput();
-    switch (playerSelection) {
-      case ("rock"):
-        if (computerSelection == "rock") {
-          result = "draw";
-        }
-        if (computerSelection == "paper") {
-          result = "lose";
-        }
-        if (computerSelection == "scissors") {
-          result = "win";
-        }
-        break;
-      case ("paper"):
-        if (computerSelection == "rock") {
-          result = "win";
-        }
-        if (computerSelection == "paper") {
-          result = "tie";
-        }
-        if (computerSelection == "scissors") {
-          result = "lose";
-        }
-        break;
-      case ("scissors"):
-        if (computerSelection == "rock") {
-          result = "lose";
-        }
-        if (computerSelection == "paper") {
-          result = "win";
-        }
-        if (computerSelection == "scissors") {
-          result = "tie";
-        }
-        break;
-    }
-    return result;
-  }
-
-  function playerInput() {
-    playerSelection = prompt("Rock, paper, or scissors?");
-    playerSelection = playerSelection.toLowerCase();
-    if (playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissors") {
-      alert("You need to choose rock, paper, or scissors dummy!");
-      playerInput();
-    } else {
-      return playerSelection;
-    }
-  }
-
-  function computerPlay() {
-    computerSelection = computerOptions[Math.floor(Math.random() * 3)];
-    return computerSelection;
-  }
-
-  console.log(playRound(computerSelection, playerSelection));
-  console.log(result);
-
-</script>
+<script src="index.js"></script>
